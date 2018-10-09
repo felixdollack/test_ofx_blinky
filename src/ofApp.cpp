@@ -2,22 +2,28 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    this->my_blinky_size = 12.0f;
+    this->my_blinky_color = ofColor::deepSkyBlue;
+    this->my_blinky_position = ofVec2f(ofGetWindowWidth()/2 - this->my_blinky_size/2, ofGetWindowHeight()/2 - this->my_blinky_size/2);
+    my_blinky = new Blinky(this->my_blinky_size, this->my_blinky_color);
+    my_blinky->setPosition(this->my_blinky_position);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    my_blinky->update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+    my_blinky->draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if (key == 32) { // space
+        my_blinky->setBlinking(!my_blinky->isBlinking());
+    }
 }
 
 //--------------------------------------------------------------

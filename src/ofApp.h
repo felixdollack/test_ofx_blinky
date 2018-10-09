@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "./ofx_blinky/ofx_blinky.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,4 +22,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
+        Blinky* my_blinky;
+        float my_blinky_size;
+        ofColor my_blinky_color;
+        ofVec2f my_blinky_position;
 };
