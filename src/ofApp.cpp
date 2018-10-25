@@ -3,20 +3,43 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     this->my_blinky_size = 12.0f;
+    this->low_blinky_size = 24.0f;
+    this->high_blinky_size = 6.0f;
+
     this->my_blinky_color = ofColor::deepSkyBlue;
+    this->low_blinky_color = ofColor::orangeRed;
+    this->low_blinky_second_color = ofColor::black;
+    this->high_blinky_color = ofColor::limeGreen;
+
     this->my_blinky_position = ofVec2f(ofGetWindowWidth()/2 - this->my_blinky_size/2, ofGetWindowHeight()/2 - this->my_blinky_size/2);
-    my_blinky = new Blinky(this->my_blinky_size, this->my_blinky_color);
+    this->low_blinky_position = ofVec2f(ofGetWindowWidth()/4 - this->my_blinky_size/2, ofGetWindowHeight()*3/4 - this->my_blinky_size/2);
+    this->high_blinky_position = ofVec2f(ofGetWindowWidth()*3/4 - this->my_blinky_size/2, ofGetWindowHeight()/4 - this->my_blinky_size/2);
+
+    my_blinky   = new Blinky(this->my_blinky_size,   this->my_blinky_color);
+    low_blinky  = new Blinky(this->low_blinky_size,  this->low_blinky_color, this->low_blinky_second_color, BeepMode::BEEP_ON_START, false, 2.0f);
+    high_blinky = new Blinky(this->high_blinky_size, this->high_blinky_color, BeepMode::BEEP_ON_END, true, 0.5f);
+
     my_blinky->setPosition(this->my_blinky_position);
+    low_blinky->setPosition(this->low_blinky_position);
+    high_blinky->setPosition(this->high_blinky_position);
+
+    low_blinky->setBlinking(true);
+    high_blinky->setBlinking(true);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     my_blinky->update();
+    low_blinky->update();
+    high_blinky->update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofBackground(0);
+    low_blinky->draw();
     my_blinky->draw();
+    high_blinky->draw();
     ofSetColor(ofColor::white);
     ofDrawBitmapString("press spacebar: blinking", 10, 15);
     ofDrawBitmapString("press o: ON", 10, 30);

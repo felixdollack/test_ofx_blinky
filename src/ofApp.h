@@ -22,8 +22,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-        Blinky* my_blinky;
-        float my_blinky_size;
-        ofColor my_blinky_color;
-        ofVec2f my_blinky_position;
+        Blinky* my_blinky, *low_blinky, *high_blinky;
+        float my_blinky_size, low_blinky_size, high_blinky_size;
+        ofColor my_blinky_color, low_blinky_color, low_blinky_second_color, high_blinky_color;
+        ofVec2f my_blinky_position, low_blinky_position, high_blinky_position;
 };
