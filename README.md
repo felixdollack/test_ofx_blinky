@@ -12,10 +12,13 @@ for your system (make, mcvs, xcode, etc).
 
 ## Example
 After successful compilation, run the executable.
-You will see a blue dot in the center of the screen.
-After pressing the spacebar the dot will start switching
-between a brighter and a darker blue.
-Press spacebar again to stop.
+There will be three dots. A blue one in the center of the screen,
+a green one in the upper right corner and an orange one in the lower left.
+The green and orange dot will blink at different speeds and beep with
+a high and low sound respectively.
+
+By pressing one of the keys, as instructed on the screen,
+you can control the blue dot.
 
 ![](.blinky_off.png)
 
